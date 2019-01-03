@@ -1,0 +1,49 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+
+    <p>You searched for: <strong>{{ query }}</strong></p>
+
+    {% if trains %}
+        <p>Found {{ trains|length }} train{{ trains|pluralize }}.</p>
+                <style>
+                table, th, td {
+                  border: 1px solid black;
+                  border-collapse: collapse;
+                }
+                    th {
+                        background-color: black;
+                        color: white;
+                        }
+                </style>
+
+                <div style="overflow-x:auto;">
+                <table style="width:100%">
+                  <tr>
+                    <th>Train Number</th>
+                    <th>Train Name</th>
+                    <th>Origin Station</th>
+                    <th>Destination  Station</th>
+                    <th>Arrival Time</th>
+                    <th>Departure Time</th>
+                  </tr>
+                 {% for train in trains %}
+                  <tr>
+                    <td>{{train.no}}</td>
+                    <td>{{train.name}}</td>
+                    <td>{{train.sourcestationname}}</td>
+                    <td>{{train.destinationstationname}}</td>
+                    <td>{{train.arrivaltime}}</td>
+                    <td>{{train.departuretime}}</td>
+                  </tr>
+                 {% endfor %}
+    {% else %}
+        <p>No Trains matched your search criteria.</p>
+    {% endif %}
+
+</body>
+</html>

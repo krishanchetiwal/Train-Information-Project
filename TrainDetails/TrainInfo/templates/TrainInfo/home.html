@@ -1,0 +1,14 @@
+<html>
+    <head>
+    <title>Home</title>
+    <h2>Enter Train Name for search</h2>
+    </head>
+    <body>
+        {% if error %}
+            <p style="color: red;">Please submit a search term.</p>
+        {% endif %}
+        <form action="" method="get">
+        <input type="text" name="q" placeholder="Train Name">
+        <input type="submit" class="btn" value="Search">
+    </body>
+</html>
